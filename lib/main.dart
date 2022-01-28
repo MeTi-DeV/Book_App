@@ -1,5 +1,7 @@
+import 'package:book_shop/screens/home_screen.dart';
 import 'package:flutter/material.dart';
 import './screens/startup_screen.dart';
+
 void main() {
   runApp(const MyApp());
 }
@@ -12,13 +14,13 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
-      theme: ThemeData(
-        fontFamily: 'SegoeUI'
+      theme: ThemeData(fontFamily: 'SegoeUI',
+      
       ),
-      home:stratupScreen()
+      home: stratupScreen(),
+      routes: {
+        HomeScreen.routeName: (ctx) => HomeScreen(),
+      },
     );
   }
 }
-
-
-
