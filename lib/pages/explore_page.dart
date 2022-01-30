@@ -1,72 +1,30 @@
-import 'package:flutter/cupertino.dart';
+
+import 'dart:math';
+
+import 'package:book_shop/pages/more_page.dart';
 import 'package:flutter/material.dart';
 import 'package:syncfusion_flutter_charts/charts.dart';
+class ExplorePage extends StatefulWidget {
 
-class HomeScreen extends StatefulWidget {
-  static const routeName = '/home-screen';
 
   @override
-  State<HomeScreen> createState() => _HomeScreenState();
+  State<ExplorePage> createState() => _ExplorePageState();
 }
 
-class _HomeScreenState extends State<HomeScreen> {
-  late List<GDPData> _chartData;
-  @override
-  void initState() {
-    _chartData = getChartData();
-    super.initState();
-  }
+class _ExplorePageState extends State<ExplorePage> {
+    late List<GDPData> _chartData;
+var isMore=false;
 
   @override
+  void initState() {
+        _chartData = getChartData();
+    super.initState();
+  }
   Widget build(BuildContext context) {
+    
     return Scaffold(
-      backgroundColor: Color.fromRGBO(234, 249, 254, 1),
-      extendBodyBehindAppBar: true,
-      bottomNavigationBar: Container(
-        height: 84,
-        decoration: BoxDecoration(
-          color: Colors.transparent,
-          borderRadius: BorderRadius.only(
-              topRight: Radius.circular(15), topLeft: Radius.circular(15)),
-          boxShadow: [
-            BoxShadow(color: Colors.black38, spreadRadius: 0, blurRadius: 10),
-          ],
-        ),
-        child: ClipRRect(
-            borderRadius: BorderRadius.only(
-              topLeft: Radius.circular(15),
-              topRight: Radius.circular(15),
-            ),
-            child: BottomNavigationBar(
-                items: <BottomNavigationBarItem>[
-                  BottomNavigationBarItem(
-                      icon: Icon(
-                        Icons.explore,
-                        color: Color.fromRGBO(48, 95, 114, 1),
-                        size: 35,
-                      ),
-                      label: 'Explore'),
-                  BottomNavigationBarItem(
-                      icon: Icon(
-                        Icons.menu_book_rounded,
-                        color: Color.fromRGBO(48, 95, 114, 1),
-                        size: 35,
-                      ),
-                      label: 'Reading'),
-                  BottomNavigationBarItem(
-                      icon: Icon(
-                        Icons.bookmark_outlined,
-                        color: Color.fromRGBO(48, 95, 114, 1),
-                        size: 35,
-                      ),
-                      label: 'Bookmark')
-                ],
-                selectedLabelStyle: TextStyle(fontSize: 12),
-                selectedItemColor: Color.fromRGBO(79, 157, 188, 1),
-                unselectedLabelStyle: TextStyle(fontSize: 12),
-                unselectedItemColor: Color.fromRGBO(79, 157, 188, 1))),
-      ),
-      body: SingleChildScrollView(
+      extendBody: true,
+      body:  SingleChildScrollView(
         child: Column(
           children: [
             Container(
@@ -544,14 +502,15 @@ class _HomeScreenState extends State<HomeScreen> {
                 ]),
               ),
             ),
+            
             Container(
-              height: 266,
+              height: 250,
               color: Colors.transparent,
               child: Stack(children: [
                 Container(
                   margin: EdgeInsets.only(top: 22),
                   alignment: Alignment.center,
-                  height: 266,
+                  height: 250,
                   decoration: BoxDecoration(
                     color: Color.fromRGBO(79, 157, 188, 1),
                     borderRadius: BorderRadius.only(
@@ -590,13 +549,36 @@ class _HomeScreenState extends State<HomeScreen> {
                                       fontSize: 18,
                                       fontWeight: FontWeight.bold),
                                 ),
-                                IconButton(
-                                    onPressed: () {},
-                                    icon: Icon(
-                                      Icons.more_horiz,
-                                      size: 30,
-                                      color: Colors.white,
-                                    ))
+                                GestureDetector(
+                                  onTap: ()=> Navigator.of(context).pushNamed(MorePage.routeName),
+                                  child: Container(
+                                    padding: EdgeInsets.all(5),
+                                    // color: Colors.black,
+                                    height: 35,
+                                    width: 40,
+                                    child: Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
+                                    Container(width: 4,height: 4
+                                    ,decoration: BoxDecoration(
+                                      borderRadius: BorderRadius.circular(4) ,color: Colors.white
+                                    ),),
+                                    Container(width: 4,height: 4
+                                    ,decoration: BoxDecoration(
+                                      borderRadius: BorderRadius.circular(4) ,color: Colors.white
+                                    ),),
+                                    Container(width: 4,height: 4
+                                    ,decoration: BoxDecoration(
+                                      borderRadius: BorderRadius.circular(4) ,color: Colors.white
+                                    ),),
+                                    ],),
+                                  ),
+                                )
+                                // IconButton(
+                                //     onPressed: ()=>Navigator.of(context).pushNamed(MorePage.routeName),
+                                //     icon: Icon(
+                                //       Icons.more_horiz,
+                                //       size: 30,
+                                //       color: Colors.white,
+                                //     ))
                               ],
                             ),
                           ),
@@ -608,6 +590,7 @@ class _HomeScreenState extends State<HomeScreen> {
                               color: Colors.white,
                             ),
                             child: Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: [
                                 Image.asset('assets/images/trends/1.png'),
                                 Padding(
@@ -677,6 +660,49 @@ class _HomeScreenState extends State<HomeScreen> {
                                       )
                                     ],
                                   ),
+                                ),
+                                Container(
+                                  width: 150,
+                                  // height: 80,
+                                  child: RotationTransition(
+                                    turns: AlwaysStoppedAnimation(-39/360),
+                                    child: SfCircularChart(
+                                                                   
+                                      annotations: <CircularChartAnnotation>[
+                                        CircularChartAnnotation(
+                                          widget: RotationTransition(
+                                            turns: AlwaysStoppedAnimation(39/360),
+                                            child: Container(
+                                              alignment: Alignment.center,
+                                              child: Text(
+                                                '${_chartData[0].gdp}%',
+                                                style: TextStyle(
+                                                    color: Color.fromRGBO(
+                                                        255, 221, 0, 1),
+                                                    fontSize: 17),
+                                              ),
+                                            ),
+                                          ),
+                                        ),
+                                      ],
+                                      
+                                      series: <CircularSeries>[
+                                        
+                                        DoughnutSeries<GDPData, String>(
+                                          
+                                            dataSource: _chartData,
+                                            innerRadius: '90%',
+                                            pointColorMapper: (GDPData data, _) =>
+                                                data.color,
+                                            xValueMapper: (GDPData data, _) =>
+                                                data.continent,
+                                            yValueMapper: (GDPData data, _) =>
+                                                data.gdp)
+                                      ],
+                                    ),
+                                  ),
+
+                                  // child:
                                 )
                               ],
                             ),
@@ -690,14 +716,22 @@ class _HomeScreenState extends State<HomeScreen> {
                   child: Align(
                     alignment: Alignment.topCenter,
                     child: IconButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        setState(() {
+                          isMore=!isMore;
+                        });
+                      },
                       icon: Container(
                         alignment: Alignment.center,
                         decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(18),
                           color: Color.fromRGBO(48, 95, 114, 1),
                         ),
-                        child: Icon(
+                        child:isMore?Icon(
+                          Icons.keyboard_arrow_down_rounded,
+                          size: 30,
+                          color: Colors.white,
+                        ): Icon(
                           Icons.keyboard_arrow_up_rounded,
                           size: 30,
                           color: Colors.white,
@@ -708,30 +742,12 @@ class _HomeScreenState extends State<HomeScreen> {
                 ),
               ]),
             ),
-            Container(
-              width: 150,
-              height: 80,
-              child: SfCircularChart(
-                series: <CircularSeries>[
-                  DoughnutSeries<GDPData, String>(
-                      radius: '100%',
-                      dataSource: _chartData,
-              
-                      pointColorMapper: (GDPData data, _) => data.color,
-                      xValueMapper: (GDPData data, _) => data.continent,
-                      yValueMapper: (GDPData data, _) => data.gdp)
-                ],
-              ),
-
-              // child:
-            )
           ],
         ),
-      ),
-    );
+      ),);
   }
 
-  List<GDPData> getChartData() {
+   List<GDPData> getChartData() {
     List<GDPData> chartData = [
       GDPData('65 %', 65, Color.fromRGBO(255, 221, 0, 1)),
       GDPData('Not Read Yet', 35, Color.fromRGBO(79, 157, 188, 1)),
