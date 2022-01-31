@@ -36,6 +36,7 @@ dependencies:
   cupertino_icons: ^1.0.2
   syncfusion_flutter_charts: ^19.4.47
   provider: ^6.0.2
+  sliding_up_panel: ^2.0.0+1
 
 dev_dependencies:
   flutter_test:
@@ -71,6 +72,7 @@ flutter:
     - assets/images/Icon feather-menu.png
     - assets/images/medium-shot-woman-with-glasses-outdoors.png
     - assets/images/start_up_icon.png
+    - assets/images/ionic-ios-arrow-dropup-circle.png
     - assets/images/trends/D2D.png
     - assets/images/trends/The_Fatal_Tree.png
     - assets/images/trends/Day_Four.png
