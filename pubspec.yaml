@@ -69,9 +69,13 @@ flutter:
     - assets/images/Blob2home.png
     - assets/images/Blob3home.png
     - assets/images/Blob4home.png
+    - assets/images/forward_icon.png
     - assets/images/Icon feather-menu.png
     - assets/images/medium-shot-woman-with-glasses-outdoors.png
     - assets/images/start_up_icon.png
+    - assets/images/Blob_1_more.png
+    - assets/images/Blob_2_more.png
+    - assets/images/Blob_3_more.png
     - assets/images/ionic-ios-arrow-dropup-circle.png
     - assets/images/trends/D2D.png
     - assets/images/trends/The_Fatal_Tree.png

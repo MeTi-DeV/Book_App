@@ -43,30 +43,38 @@ class _TabWidgetState extends State<TabWidget> {
   late List<GDPData> _chartData;
   var isExpend = false;
   var isMore = false;
-  void initState() {
-    _chartData = getChartData();
-    super.initState();
-  }
+  // void initState() {
+  //   // _chartData = getChartData();
+  //   super.initState();
+  // }
 
   void panelToggler() {
-    if (widget.panelController.isPanelOpen) {
-      widget.panelController.close();
-      isExpend = false;
-    } else {
-      isExpend = true;
-      widget.panelController.open();
-    }
-    print(widget.panelController);
+    (widget.panelController.isPanelOpen && isExpend)
+        ? widget.panelController.close()
+        : widget.panelController.open();
   }
 
   @override
   Widget build(BuildContext context) => Column(
         children: [
           IconButton(
-              onPressed: () => panelToggler(),
-              icon: widget.panelController.isPanelOpen
-                  ? Icon(Icons.keyboard_arrow_down_rounded ,size:40 ,color: Colors.white,)
-                  : Icon(Icons.keyboard_arrow_up_rounded,size: 40,color: Colors.white,)),
+              onPressed: () {
+                panelToggler();
+                setState(() {
+                  isExpend = !isExpend;
+                });
+              },
+              icon: isExpend
+                  ? Icon(
+                      Icons.keyboard_arrow_down_rounded,
+                      size: 40,
+                      color: Colors.white,
+                    )
+                  : Icon(
+                      Icons.keyboard_arrow_up_rounded,
+                      size: 40,
+                      color: Colors.white,
+                    )),
           Container(
             child: Stack(
               children: [
@@ -145,14 +153,13 @@ class _TabWidgetState extends State<TabWidget> {
                                       ],
                                     ),
                                   ),
-                                )
+                                ),
                               ],
                             ),
                           ),
                           Container(
                             height: 380,
                             child: ListView.builder(
-                          
                               controller: widget.controller,
                               itemCount: 3,
                               itemBuilder: (BuildContext context, int index) {
@@ -176,18 +183,18 @@ class _TabWidgetState extends State<TabWidget> {
         ],
       );
 
-  List<GDPData> getChartData() {
-    List<GDPData> chartData = [
-      GDPData('65 %', 65, Color.fromRGBO(255, 221, 0, 1)),
-      GDPData('Not Read Yet', 100 - 65, Color.fromRGBO(79, 157, 188, 1)),
-    ];
-    return chartData;
-  }
+  // List<GDPData> getChartData() {
+  //   List<GDPData> chartData = [
+  //     GDPData('65 %', 65, Color.fromRGBO(255, 221, 0, 1)),
+  //     GDPData('Not Read Yet', 100 - 65, Color.fromRGBO(79, 157, 188, 1)),
+  //   ];
+  //   return chartData;
+  // }
 }
 
-class GDPData {
-  final int gdp;
-  final String continent;
-  final Color color;
-  GDPData(this.continent, this.gdp, this.color);
-}
+// class GDPData {
+//   final int gdp;
+//   final String continent;
+//   final Color color;
+//   GDPData(this.continent, this.gdp, this.color);
+// }
