@@ -33,15 +33,15 @@ class stratupScreen extends StatelessWidget {
                   ),
                 ),
                 Align(
-                  alignment: Alignment.center,
+                  // alignment: Alignment.center,
                   child: ClipRRect(
                     child: Stack(
                       children: [
                         Image.asset(
                           'assets/images/female_student.png',
                           height: 469,
-                          width: 397,
-                          fit: BoxFit.cover,
+                          width: double.infinity,
+                          fit: BoxFit.contain
                         ),
                         Padding(
                           padding: const EdgeInsets.only(left: 20),
@@ -57,9 +57,9 @@ class stratupScreen extends StatelessWidget {
                                     offset: Offset(0, 0),
                                   )
                                 ]),
-                                margin: EdgeInsets.only(top: 380),
+                                margin: EdgeInsets.only(top:MediaQuery.of(context).size.width > 768? MediaQuery.of(context).size.height *0.32:MediaQuery.of(context).size.height *0.5),
                                 child: Text(
-                                  'Reading Is \nFascinating',
+                                  'Reading Is Fascinating',
                                   style: TextStyle(
                                       fontFamily: 'Raleway',
                                       fontSize: 48,
@@ -67,6 +67,7 @@ class stratupScreen extends StatelessWidget {
                                       fontWeight: FontWeight.w700),
                                 ),
                               ),
+                              SizedBox(height:MediaQuery.of(context).size.width > 768? MediaQuery.of(context).size.height*0.05:MediaQuery.of(context).size.height*0.01,),
                               Text(
                                 'World best writers, works and write entertaining literature for you',
                                 style: TextStyle(
@@ -87,20 +88,20 @@ class stratupScreen extends StatelessWidget {
             ),
             SizedBox(
               child: Container(
-                margin: EdgeInsets.only(top: 40),
+                margin: EdgeInsets.only(top:MediaQuery.of(context).size.width > 768? MediaQuery.of(context).size.height*0.2: MediaQuery.of(context).size.height*0.05),
                 child: Center(
                     child: Column(
                   children: [
                     Text(
                       'Let\s start',
-                      style: TextStyle(
+                      style: TextStyle(fontSize: 16,
                           fontFamily: 'SegoeUI',
                           color: Color.fromRGBO(48, 95, 114, 1),
                           fontWeight: FontWeight.bold),
                     ),
                     Center(
                       child: Container(
-                          margin: EdgeInsets.only(top: 15, left: 15),
+                          // margin: EdgeInsets.only(top: 15, left: 15),
                           // margin: EdgeInsets.only(top: 20),
                           // decoration: BoxDecoration(
                           //     color: Color.fromRGBO(48, 95, 114, 1),

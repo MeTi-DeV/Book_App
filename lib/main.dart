@@ -6,34 +6,33 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'startup_screen.dart';
 
+
 void main() {
   runApp(MyApp());
 }
 
 class MyApp extends StatelessWidget {
-
-
   @override
   Widget build(BuildContext context) {
     return MultiProvider(
-      providers: [
-        Provider<Books>(create: (ctx)=>Books()),
+        providers: [
+          Provider<Books>(create: (ctx) => Books()),
+        ],
+        child:
         
-      ],
-      child: MaterialApp(
-        debugShowCheckedModeBanner: false,
-        title: 'Flutter Demo',
-        theme: ThemeData(fontFamily: 'SegoeUI',
-          
-        
-        ),
-        home: stratupScreen(),
-        routes: {
-          HomeScreen.routeName: (ctx) => HomeScreen(),
-          MorePage.routeName:(ctx)=>MorePage(),
-DetailScreen.routeName:(ctx)=>DetailScreen()
-        },
-      ),
-    );
+         MaterialApp(
+          debugShowCheckedModeBanner: false,
+          title: 'Flutter Demo',
+          theme: ThemeData(
+            fontFamily: 'SegoeUI',
+          ),
+          home: stratupScreen(),
+          routes: {
+            HomeScreen.routeName: (ctx) => HomeScreen(),
+            MorePage.routeName: (ctx) => MorePage(),
+            DetailScreen.routeName: (ctx) => DetailScreen()
+          },
+        )
+        );
   }
 }

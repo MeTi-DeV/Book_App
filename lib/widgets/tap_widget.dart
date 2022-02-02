@@ -85,14 +85,16 @@ class _TabWidgetState extends State<TabWidget> {
                   child: Stack(
                     children: [
                       Container(
-                        margin: EdgeInsets.only(top: 90),
+                        margin: EdgeInsets.only(
+                            top: MediaQuery.of(context).size.height * 0.01),
                         child: Align(
                           alignment: Alignment.bottomRight,
                           child: Image.asset('assets/images/Blob2home.png'),
                         ),
                       ),
                       Container(
-                        margin: EdgeInsets.only(top: 90),
+                        margin: EdgeInsets.only(
+                            top: MediaQuery.of(context).size.height * 0.1),
                         child: Align(
                           alignment: Alignment.bottomLeft,
                           child: Image.asset('assets/images/Blob3home.png'),
@@ -119,7 +121,7 @@ class _TabWidgetState extends State<TabWidget> {
                                       .pushNamed(MorePage.routeName),
                                   child: Container(
                                     padding: EdgeInsets.all(5),
-                                    // color: Colors.black,
+                                    color: Colors.transparent,
                                     height: 30,
                                     width: 40,
                                     child: Row(
@@ -157,21 +159,48 @@ class _TabWidgetState extends State<TabWidget> {
                               ],
                             ),
                           ),
-                         Container(
-                            height: 380,
-                            child: ListView.builder(
-                              padding: EdgeInsets.only(top: MediaQuery.of(context).size.height*0.05 ,bottom: MediaQuery.of(context).size.height*0.1),
-                              controller: widget.controller,
-                              itemCount: 3,
-                              itemBuilder: (BuildContext context, int index) {
-                                return RecommendWidget(
-                                    title: items[index].title,
-                                    writer: items[index].writer,
-                                    rating: items[index].rating,
-                                    image: items[index].image,
-                                    readed: items[index].readed);
-                              },
-                            ),
+                          Container(
+                            height: MediaQuery.of(context).size.height * 0.5,
+                            child: MediaQuery.of(context).size.width > 768
+                                ? GridView.builder(
+                                    gridDelegate:
+                                        const SliverGridDelegateWithFixedCrossAxisCount(
+                                      crossAxisCount: 2,
+                                      crossAxisSpacing: 10,
+                                      mainAxisSpacing: 10,
+                                      childAspectRatio: 7 / 2,
+                                    ),
+                                    itemCount: items.length,
+                                    itemBuilder:
+                                        (BuildContext context, int index) {
+                                      return RecommendWidget(
+                                          title: items[index].title,
+                                          writer: items[index].writer,
+                                          rating: items[index].rating,
+                                          image: items[index].image,
+                                          readed: items[index].readed);
+                                    },
+                                  )
+                                : ListView.builder(
+                                    padding: EdgeInsets.only(
+                                        top:
+                                            MediaQuery.of(context).size.height *
+                                                0.03,
+                                        bottom:
+                                            MediaQuery.of(context).size.height *
+                                                0.11),
+                                    controller: widget.controller,
+                                    itemCount: 3,
+                                    itemBuilder:
+                                        (BuildContext context, int index) {
+                                      return RecommendWidget(
+                                          title: items[index].title,
+                                          writer: items[index].writer,
+                                          rating: items[index].rating,
+                                          image: items[index].image,
+                                          readed: items[index].readed);
+                                    },
+                                  ),
                           ),
                         ],
                       ),
