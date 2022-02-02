@@ -85,7 +85,6 @@ class _HomeScreenState extends State<HomeScreen> {
           ),
         ),
         body: Container(
-          // padding: EdgeInsets.only(bottom: 70),
           child: screens[index]));
   }
 }
