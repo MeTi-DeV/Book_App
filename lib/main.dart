@@ -1,6 +1,5 @@
 import 'package:book_shop/home_screen.dart';
 import 'package:book_shop/pages/detail_screen.dart';
-import 'package:book_shop/pages/explore_page.dart';
 import 'package:book_shop/pages/more_page.dart';
 import './providers/books.dart';
 import 'package:flutter/material.dart';

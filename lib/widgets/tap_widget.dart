@@ -49,7 +49,7 @@ class _TabWidgetState extends State<TabWidget> {
   // }
 
   void panelToggler() {
-    (widget.panelController.isPanelOpen && isExpend)
+    (widget.panelController.isPanelOpen || isExpend)
         ? widget.panelController.close()
         : widget.panelController.open();
   }
@@ -64,7 +64,7 @@ class _TabWidgetState extends State<TabWidget> {
                   isExpend = !isExpend;
                 });
               },
-              icon: isExpend
+              icon: isExpend || widget.panelController.isPanelOpen
                   ? Icon(
                       Icons.keyboard_arrow_down_rounded,
                       size: 40,
@@ -120,7 +120,7 @@ class _TabWidgetState extends State<TabWidget> {
                                   child: Container(
                                     padding: EdgeInsets.all(5),
                                     // color: Colors.black,
-                                    height: 35,
+                                    height: 30,
                                     width: 40,
                                     child: Row(
                                       mainAxisAlignment:
@@ -157,9 +157,10 @@ class _TabWidgetState extends State<TabWidget> {
                               ],
                             ),
                           ),
-                          Container(
+                         Container(
                             height: 380,
                             child: ListView.builder(
+                              padding: EdgeInsets.only(top: MediaQuery.of(context).size.height*0.05 ,bottom: MediaQuery.of(context).size.height*0.1),
                               controller: widget.controller,
                               itemCount: 3,
                               itemBuilder: (BuildContext context, int index) {
@@ -182,19 +183,4 @@ class _TabWidgetState extends State<TabWidget> {
           ),
         ],
       );
-
-  // List<GDPData> getChartData() {
-  //   List<GDPData> chartData = [
-  //     GDPData('65 %', 65, Color.fromRGBO(255, 221, 0, 1)),
-  //     GDPData('Not Read Yet', 100 - 65, Color.fromRGBO(79, 157, 188, 1)),
-  //   ];
-  //   return chartData;
-  // }
 }
-
-// class GDPData {
-//   final int gdp;
-//   final String continent;
-//   final Color color;
-//   GDPData(this.continent, this.gdp, this.color);
-// }
