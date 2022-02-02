@@ -21,7 +21,7 @@ class MorePage extends StatelessWidget {
                     alignment: Alignment.topLeft,
                   ),
                   Container(
-                    margin: EdgeInsets.only(top: 140),
+                    margin: EdgeInsets.only(top: MediaQuery.of(context).size.height *0.2),
                     child: Column(
                       children: [
                         Align(
@@ -68,7 +68,7 @@ class MorePage extends StatelessWidget {
                                           fontFamily: 'Raleway'),
                                     ),
                                     SizedBox(
-                                      height: 5,
+                                      height: MediaQuery.of(context).size.height*0.008,
                                     ),
                                     Text(
                                       'by Lotz, Sarah',
@@ -84,7 +84,7 @@ class MorePage extends StatelessWidget {
                                           fontFamily: 'SegoeUI'),
                                     ),
                                     SizedBox(
-                                      height: 5,
+                                      height: MediaQuery.of(context).size.height*0.008,
                                     ),
                                     Container(
                                       child: Row(
@@ -122,7 +122,7 @@ class MorePage extends StatelessWidget {
                                       ),
                                     ),
                                     SizedBox(
-                                      height: 5,
+                                      height: MediaQuery.of(context).size.height*0.008,
                                     ),
                                     Text(
                                       '\$ ${20.00.toStringAsFixed(2)}',
@@ -133,11 +133,11 @@ class MorePage extends StatelessWidget {
                                           fontFamily: 'SegoeUI'),
                                     ),
                                     SizedBox(
-                                      height: 20,
+                                      height: MediaQuery.of(context).size.height*0.03,
                                     ),
                                     Container(
-                                      width: 136,
-                                      height: 47,
+                                      width: MediaQuery.of(context).size.width*0.34,
+                                      height: MediaQuery.of(context).size.width*0.112,
                                       margin:
                                           EdgeInsets.symmetric(horizontal: 5),
                                       child: ElevatedButton(
@@ -258,7 +258,7 @@ class MorePage extends StatelessWidget {
                                       .pushNamed(MorePage.routeName),
                                   child: Container(
                                     padding: EdgeInsets.all(5),
-                                    // color: Colors.black,
+                                    color: Colors.transparent,
                                     height: 35,
                                     width: 40,
                                     child: Row(
@@ -266,8 +266,8 @@ class MorePage extends StatelessWidget {
                                           MainAxisAlignment.spaceBetween,
                                       children: [
                                         Container(
-                                          width: 4,
-                                          height: 4,
+                                          width: MediaQuery.of(context).size.height*0.006,
+                                          height: MediaQuery.of(context).size.height*0.006,
                                           decoration: BoxDecoration(
                                               borderRadius:
                                                   BorderRadius.circular(4),
@@ -275,8 +275,8 @@ class MorePage extends StatelessWidget {
                                               ),
                                         ),
                                         Container(
-                                          width: 4,
-                                          height: 4,
+                                          width: MediaQuery.of(context).size.height*0.006,
+                                          height: MediaQuery.of(context).size.height*0.006,
                                           decoration: BoxDecoration(
                                               borderRadius:
                                                   BorderRadius.circular(4),
@@ -284,8 +284,8 @@ class MorePage extends StatelessWidget {
                                               ),
                                         ),
                                         Container(
-                                          width: 4,
-                                          height: 4,
+                                          width: MediaQuery.of(context).size.height*0.006,
+                                          height: MediaQuery.of(context).size.height*0.006,
                                           decoration: BoxDecoration(
                                               borderRadius:
                                                   BorderRadius.circular(4),
@@ -309,8 +309,8 @@ class MorePage extends StatelessWidget {
                                   Align(
                                     alignment: Alignment.center,
                                     child: Container(
-                                      height: 235,
-                                      width: 140,
+                                      height: MediaQuery.of(context).size.height*0.35,
+                                     width: MediaQuery.of(context).size.width*0.37,
                                       margin:
                                           EdgeInsets.symmetric(horizontal: 5),
                                       decoration: BoxDecoration(
@@ -324,7 +324,7 @@ class MorePage extends StatelessWidget {
                                               child: Image.asset(
                                                 'assets/images/trends/The_Fatal_Tree.png',
                                                 fit: BoxFit.cover,
-                                                height: 180,
+                                                height: MediaQuery.of(context).size.height*0.26,
                                                 width: double.infinity,
                                               ),
                                             ),
@@ -376,8 +376,8 @@ class MorePage extends StatelessWidget {
                                   Align(
                                     alignment: Alignment.center,
                                     child: Container(
-                                      height: 235,
-                                      width: 140,
+                                      height: MediaQuery.of(context).size.height*0.35,
+                                     width: MediaQuery.of(context).size.width*0.37,
                                       margin:
                                           EdgeInsets.symmetric(horizontal: 5),
                                       decoration: BoxDecoration(
@@ -392,7 +392,7 @@ class MorePage extends StatelessWidget {
                                                 child: Image.asset(
                                                   'assets/images/trends/Day_Four.png',
                                                   fit: BoxFit.cover,
-                                                  height: 180,
+                                                  height: MediaQuery.of(context).size.height*0.26,
                                                   width: double.infinity,
                                                 ),
                                               ),
@@ -451,8 +451,8 @@ class MorePage extends StatelessWidget {
                                   Align(
                                     alignment: Alignment.center,
                                     child: Container(
-                                      height: 235,
-                                      width: 140,
+                                      height: MediaQuery.of(context).size.height*0.35,
+                                     width: MediaQuery.of(context).size.width*0.37,
                                       margin:
                                           EdgeInsets.symmetric(horizontal: 5),
                                       decoration: BoxDecoration(
@@ -466,7 +466,7 @@ class MorePage extends StatelessWidget {
                                               child: Image.asset(
                                                 'assets/images/trends/D2D.png',
                                                 fit: BoxFit.cover,
-                                                height: 180,
+                                                height: MediaQuery.of(context).size.height*0.26,
                                                 width: double.infinity,
                                               ),
                                             ),
@@ -518,8 +518,8 @@ class MorePage extends StatelessWidget {
                                   Align(
                                     alignment: Alignment.center,
                                     child: Container(
-                                      height: 235,
-                                      width: 140,
+                                      height: MediaQuery.of(context).size.height*0.35,
+                                     width: MediaQuery.of(context).size.width*0.37,
                                       margin:
                                           EdgeInsets.symmetric(horizontal: 5),
                                       decoration: BoxDecoration(
@@ -533,7 +533,7 @@ class MorePage extends StatelessWidget {
                                               child: Image.asset(
                                                 'assets/images/trends/Graphic_Novels.png',
                                                 fit: BoxFit.cover,
-                                                height: 180,
+                                                height: MediaQuery.of(context).size.height*0.26,
                                                 width: double.infinity,
                                               ),
                                             ),
