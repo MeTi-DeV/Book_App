@@ -5,9 +5,12 @@ import './providers/books.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'startup_screen.dart';
-
+import 'package:flutter/services.dart';
 
 void main() {
+  WidgetsFlutterBinding.ensureInitialized();
+  SystemChrome.setPreferredOrientations(
+      [DeviceOrientation.portraitUp, DeviceOrientation.portraitDown]);
   runApp(MyApp());
 }
 
@@ -18,9 +21,7 @@ class MyApp extends StatelessWidget {
         providers: [
           Provider<Books>(create: (ctx) => Books()),
         ],
-        child:
-        
-         MaterialApp(
+        child: MaterialApp(
           debugShowCheckedModeBanner: false,
           title: 'Flutter Demo',
           theme: ThemeData(
@@ -32,7 +33,6 @@ class MyApp extends StatelessWidget {
             MorePage.routeName: (ctx) => MorePage(),
             DetailScreen.routeName: (ctx) => DetailScreen()
           },
-        )
-        );
+        ));
   }
 }
